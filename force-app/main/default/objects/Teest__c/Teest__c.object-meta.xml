@@ -153,12 +153,12 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>test</label>
+    <label>Teest</label>
     <nameField>
-        <label>test Name</label>
+        <label>customer-test Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>test12334543</pluralLabel>
+    <pluralLabel>Teest</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

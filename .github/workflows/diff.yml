@@ -15,4 +15,20 @@ jobs:
       # Checkout the source code       
        - name: 'Git Checkout'  
          uses: actions/checkout@v2
-              
+      on: 
+ # Triggers the workflow on push or pull request events but only for the main branch
+ push:
+  branches: [GitAction_POC]
+ # Allows you to run this workflow manually from the Actions tab
+ workflow_dispatch:
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+    steps:      
+      # Checkout the source code       
+       - name: 'Git Checkout'  
+         uses: actions/checkout@v2
+         with:
+          ref: 'GitAction_POC'
+       - name: 'Git Diff'
+         run: git diff --name-only 65df6673f973d191a23d018ceb48086b3881cd02 a072f6b04505362fa9f219c53d96e907f02baf88        

@@ -1,0 +1,21 @@
+name: Git Diff
+
+ 
+
+on: 
+ # Triggers the workflow on push or pull request events but only for the main branch
+ push:
+  branches: [staging]
+ # Allows you to run this workflow manually from the Actions tab
+ workflow_dispatch:
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+    steps:      
+      # Checkout the source code       
+       - name: 'Git Checkout'  
+         uses: actions/checkout@v2
+         with:
+          ref: 'GitAction_POC'
+       - name: 'Git Diff'
+         run: git diff --name-only a072f6b04505362fa9f219c53d96e907f02baf88 e206d9be5c094450242d978d3272296f5119e226

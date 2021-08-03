@@ -11,5 +11,7 @@ jobs:
       # Checkout the source code       
        - name: 'Git Checkout'  
          uses: actions/checkout@v2
+       - name: 'git clone'
+         run: git checkout uat
        - name: 'Git Diff'
          run: git diff --name-only 65df6673f973d191a23d018ceb48086b3881cd02 a072f6b04505362fa9f219c53d96e907f02baf88

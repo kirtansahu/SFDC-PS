@@ -14,4 +14,4 @@ jobs:
        - name: 'git clone'
          run: git config --global init.defaultBranch uat
        - name: 'Git Diff'
-         run: git diff --name-only 65df6673f973d191a23d018ceb48086b3881cd02 a072f6b04505362fa9f219c53d96e907f02baf88
+         run: git diff --name-only a072f6b04505362fa9f219c53d96e907f02baf88 4a36d16577dcde6c6cf159852815fe81bc902349

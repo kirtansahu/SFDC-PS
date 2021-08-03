@@ -12,7 +12,8 @@ jobs:
        - name: 'Git Checkout'  
          uses: actions/checkout@v2
          with:
-          fetch-depth: 0
+          ref: uat
+          fetch-depth: 0     
        - name: 'branch'
          run: git branch
        - name: 'Git Diff'

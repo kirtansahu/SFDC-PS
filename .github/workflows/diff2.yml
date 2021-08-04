@@ -18,22 +18,14 @@ jobs:
          run: git branch
        - name: 'job status'
          run: echo hello world !!!
-         
-       - name: Send mail
-         if: always()
-         uses: dawidd6/action-send-mail@v2
+       - name: Send Email Action (Node)
+         uses: wadeww/send-email-action@v1 
          with:
-          # mail server settings
           server_address: smtp.gmail.com
-          server_port: 465
-          # user credentials
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          # email subject
-          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-          # email body as text
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-          # comma-separated string, send email to
-          to: kirtansahu.87@gmail.com,mbr.kirtan@gmail.com
-          # from email name
-          from: kirtan sahu
+          port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Workflow finished
+          body: Job completed ${{job.status}}
+          to: kirtansahu.87@gmail.com, mbr.kirtan@gmail.com
+          from: me

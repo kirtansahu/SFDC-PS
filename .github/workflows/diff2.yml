@@ -16,5 +16,7 @@ jobs:
           fetch-depth: 0     
        - name: 'branch'
          run: git branch
-       - name: 'Git Diff'
-         run: git diff --name-only a072f6b04505362fa9f219c53d96e907f02baf88 854f68a163ba86b4490c1eef13462cca6df648d1
+       - name: 'job status'
+         run: echo hello world !!!
+         
+         

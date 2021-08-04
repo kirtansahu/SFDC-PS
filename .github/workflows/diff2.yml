@@ -18,14 +18,34 @@ jobs:
          run: git branch
        - name: 'job status'
          run: echo hello world !!!
-       - name: Send Email Action (Node)
-         uses: wadeww/send-email-action@v1 
+       - name: Send mail
+         uses: dawidd6/action-send-mail@v3
          with:
-          server_address: smtp.gmail.com
-          port: 465
-          username: ${{secrets.MAIL_USERNAME}}
-          password: ${{secrets.MAIL_PASSWORD}}
-          subject: Workflow finished
-          body: Job completed ${{job.status}}
-          to: kirtansahu.87@gmail.com, mbr.kirtan@gmail.com
-          from: me
+           # Required mail server address:
+           server_address: smtp.gmail.com
+           # Required mail server port:
+           server_port: 465
+           # Optional (recommended): mail server username:
+           username: ${{secrets.MAIL_USERNAME}}
+           # Optional (recommended) mail server password:
+           password: ${{secrets.MAIL_PASSWORD}}
+           # Required mail subject:
+           subject: Github Actions job result
+           # Required recipients' addresses:
+           to: kirtansahu.87@gmail.com
+           # Required sender full name (address can be skipped):
+           from: kirtansahu.87@gmail.com # <user@example.com>
+           # Optional whether this connection use TLS (default is true if server_port is 465)
+           secure: true
+           # Optional plain body:
+           body: Build job of ${{github.repository}} completed successfully!
+           # Optional HTML body read from file:
+           html_body: file://README.html
+           # Optional carbon copy recipients:
+           cc: kirtansahu.87@gmail.com
+           # Optional unsigned/invalid certificates allowance:
+           ignore_cert: true
+           # Optional converting Markdown to HTML (set content_type to text/html too):
+           convert_markdown: true
+           # Optional priority: 'high', 'normal' (default) or 'low'
+           priority: low

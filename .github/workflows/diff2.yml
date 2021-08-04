@@ -32,7 +32,7 @@ jobs:
            # Required mail subject:
            subject: Github Actions job result
            # Required recipients' addresses:
-           to: kirtansahu.87@gmail.com
+           to: kirtansahu.87@gmail.com,perala_ravi@persistent.com
            # Required sender full name (address can be skipped):
            from: kirtansahu.87@gmail.com # <user@example.com>
            # Optional whether this connection use TLS (default is true if server_port is 465)
@@ -40,7 +40,7 @@ jobs:
            # Optional plain body:
            body: Build job of ${{github.repository}} completed successfully!
            # Optional carbon copy recipients:
-           cc: kirtansahu.87@gmail.com
+           cc: kirtan_sahu@persistent.com
            # Optional unsigned/invalid certificates allowance:
            ignore_cert: true
            # Optional converting Markdown to HTML (set content_type to text/html too):

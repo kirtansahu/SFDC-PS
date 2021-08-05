@@ -7,9 +7,7 @@ on:
   inputs:
    DEPLOYMENTTYPE:
     description: 
-                  Enter 1 for deploy >-
-                  2 for validate >
-                  3 for roll back1
+                  Enter 1- for deploy  2- for validate 3- for rollback
     required: true
     default: '1'
 jobs:  

@@ -29,6 +29,7 @@ jobs:
        - name: Get color
          run: cat /tst.txt
        - name: Send mail
+         if: always()
          uses: dawidd6/action-send-mail@v3
          with:
            # Required mail server address:

@@ -19,7 +19,6 @@ jobs:
          run: echo ${{ github.event.inputs.DEPLOYMENTTYPE}} 
        - name: DEPLOYOFF
          if: ne(${{ github.event.inputs.DEPLOYMENTTYPE}}, '1')
-          dept:"test"
        - name: 'Git Checkout'  
          uses: actions/checkout@v2
          with:

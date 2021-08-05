@@ -5,15 +5,20 @@ on:
  # Allows you to run this workflow manually from the Actions tab
  workflow_dispatch:
   inputs:
-      logLevel:
-        description: 'Deploy - Environment'     
-        required: true
-        default: uat
+   numOctocats:
+    description: 'Number of Octocats'
+    required: false
+    default: '1'
+   octocatEyeColor:
+     description: 'Eye color of the Octocats'
+     required: true
 jobs:  
   build:
     runs-on: ubuntu-latest
     steps:      
-      # Checkout the source code       
+      # Checkout the source code  
+       - name: 'outpus of octocatEyeColor values'
+         run: echo  ${{INPUT_NUMOCTOCATS}}
        - name: 'Git Checkout'  
          uses: actions/checkout@v2
          with:

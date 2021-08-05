@@ -23,6 +23,11 @@ jobs:
          run: git branch
        - name: 'job status'
          run: echo hello world !!! exit 1
+       - name: Set selected Sandbox
+         run: echo '::set-output name=SELECTED_COLOR::green'
+         id: random-color-generator
+       - name: Get color
+         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
        - name: Send mail
          uses: dawidd6/action-send-mail@v3
          with:

@@ -5,20 +5,17 @@ on:
  # Allows you to run this workflow manually from the Actions tab
  workflow_dispatch:
   inputs:
-   numOctocats:
-    description: 'Number of Octocats'
-    required: false
-    default: '1'
-   octocatEyeColor:
-     description: 'Eye color of the Octocats'
-     required: true
+   DEPLOYMENTTYPE:
+    description: 'Deployment type'
+    required: true
+    default: 'deployment'
 jobs:  
   build:
     runs-on: ubuntu-latest
     steps:      
       # Checkout the source code  
        - name: 'outpus of octocatEyeColor values'
-         run: echo  ${{INPUT_NUMOCTOCATS}}
+         run: echo  ${{inputs.INPUT_DEPLOYMENTTYPE}}
        - name: 'Git Checkout'  
          uses: actions/checkout@v2
          with:
@@ -28,11 +25,6 @@ jobs:
          run: git branch
        - name: 'job status'
          run: echo hello world !!! exit 1
-       - name: Set selected Sandbox
-         run: echo '::set-output name=SELECTED_COLOR::green'
-         id: random-color-generator
-       - name: Get color
-         run: cat /tst.txt
        - name: Send mail
          if: always()
          uses: dawidd6/action-send-mail@v3

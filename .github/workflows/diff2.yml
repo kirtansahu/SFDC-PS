@@ -6,9 +6,9 @@ on:
  workflow_dispatch:
   inputs:
    DEPLOYMENTTYPE:
-    description: >-
-                  Enter 1 for deploy1
-                  2 for validate
+    description: 
+                  Enter 1 for deploy \n
+                  2 for validate \n
                   3 for roll back1
     required: true
     default: '1'

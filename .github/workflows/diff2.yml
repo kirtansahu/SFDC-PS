@@ -8,7 +8,7 @@ on:
       logLevel:
         description: 'Deploy - Environment'     
         required: true
-        default: ["uat", "staging", "feature", "prod"]
+        default: uat
 jobs:  
   build:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
            # Required mail subject:
            subject: Github Actions job result
            # Required recipients' addresses:
-           to: kirtansahu.87@gmail.com,perala_ravi@persistent.com
+           to: kirtansahu.87@gmail.com
            # Required sender full name (address can be skipped):
            from: kirtansahu.87@gmail.com # <user@example.com>
            # Optional whether this connection use TLS (default is true if server_port is 465)

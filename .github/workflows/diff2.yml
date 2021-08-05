@@ -15,7 +15,7 @@ jobs:
     steps:      
       # Checkout the source code  
        - name: 'outpus of octocatEyeColor values'
-         run: echo  ${{inputs.INPUT_DEPLOYMENTTYPE}}
+         run: echo "::set-env name=INPUT_ALLOWED_FEATURES::${{ github.event.inputs.DEPLOYMENTTYPE}}" 
        - name: 'Git Checkout'  
          uses: actions/checkout@v2
          with:

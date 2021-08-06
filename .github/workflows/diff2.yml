@@ -17,11 +17,10 @@ jobs:
       # Checkout the source code  
        - name: 'outpus of DEPLOYMENTTYPE variable'
          run: echo ${{ github.event.inputs.DEPLOYMENTTYPE}} 
-       - shell: |-
-           if [ "${{ github.event.inputs.DEPLOYMENTTYPE}}" -eq 1 ]
-           then
-           exit 1
-           fi       
+       - name: 'assigning to variable'
+         env:
+           D_type: ${{ github.event.inputs.DEPLOYMENTTYPE}}
+         run: echo ${{ github.event.inputs.DEPLOYMENTTYPE}}
        - name: 'Git Checkout'  
          uses: actions/checkout@v2
          with:

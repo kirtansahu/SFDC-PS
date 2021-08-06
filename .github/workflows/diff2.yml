@@ -12,7 +12,7 @@ on:
     default: '1'
 jobs:  
   build:
-   if: ${{ github.event.inputs.DEPLOYMENTTYPE== '1' }}
+   if: ${{ github.event.inputs.DEPLOYMENTTYPE== '1' || github.event.inputs.DEPLOYMENTTYPE== '2' || github.event.inputs.DEPLOYMENTTYPE== '3' }}
    runs-on: ubuntu-latest
    steps:      
       # Checkout the source code  

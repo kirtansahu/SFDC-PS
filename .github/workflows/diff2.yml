@@ -12,8 +12,9 @@ on:
     default: '1'
 jobs:  
   build:
-    runs-on: ubuntu-latest
-    steps:      
+   if: ${{ github.event.inputs.DEPLOYMENTTYPE== '1' }}
+   runs-on: ubuntu-latest
+   steps:      
       # Checkout the source code  
        - name: 'outpus of DEPLOYMENTTYPE variable'
          run: echo ${{ github.event.inputs.DEPLOYMENTTYPE}} 
@@ -21,9 +22,6 @@ jobs:
          env:
            D_type: ${{ github.event.inputs.DEPLOYMENTTYPE}}
          run: echo ${{ github.event.inputs.DEPLOYMENTTYPE}}
-       - name: Deployment type validation
-         if: ${{D_type == '1' || D_type == '2'  || D_type == '3'}}
-         run: echo "Deployment type is not correct. please enter correct input"
        - name: 'Git Checkout'  
          uses: actions/checkout@v2
          with:

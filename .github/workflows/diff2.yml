@@ -12,7 +12,7 @@ on:
     default: '1'
 jobs:  
   build:
-   if: ${{ github.event.inputs.DEPLOYMENTTYPE== '2' }}
+   if: ${{ github.event.inputs.DEPLOYMENTTYPE== '1' }}
    runs-on: ubuntu-latest
    steps:      
       # Checkout the source code  
@@ -63,16 +63,16 @@ jobs:
            priority: low
   depoy_test:
    name: Issue comment
-   if: ${{ github.event.inputs.DEPLOYMENTTYPE == 1 }}
+   if: ${{ github.event.inputs.DEPLOYMENTTYPE == 2 }}
    runs-on: ubuntu-latest
    steps:
       - run: |
           echo "input is 1"
   depoy_test2:
    name: Issue comment1
-   if: ${{ github.event.inputs.DEPLOYMENTTYPE == 1 }}
+   if: ${{ github.event.inputs.DEPLOYMENTTYPE != '1' && github.event.inputs.DEPLOYMENTTYPE != '2' && github.event.inputs.DEPLOYMENTTYPE != '3' }}
    runs-on: ubuntu-latest
    steps:
       - run: |
-          echo "input is 2"
+          echo "input is not corrrect"
   

@@ -1,0 +1,17 @@
+on: 
+ # Triggers the workflow on push or pull request events but only for the main branch
+ push:
+  branches: [ uat ]
+ # Allows you to run this workflow manually from the Actions tab
+ workflow_dispatch:
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+    steps:      
+      # Checkout the source code       
+       - name: 'Git Checkout'  
+         uses: actions/checkout@v2
+       - name: 'branch'
+         run: git branch
+       - name: 'Git Diff'
+         run: git diff --name-only a072f6b04505362fa9f219c53d96e907f02baf88 4a36d16577dcde6c6cf159852815fe81bc902349

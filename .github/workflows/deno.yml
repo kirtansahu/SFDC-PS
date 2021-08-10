@@ -1,0 +1,63 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow will install Deno then run Deno lint and test.
+# For more information see: https://github.com/denoland/setup-deno
+
+on: 
+ # Triggers the workflow on push or pull request events but only for the main branch
+ push:
+  branches: [ uat ]
+ # Allows you to run this workflow manually from the Actions tab
+jobs:  
+  build:
+   runs-on: ubuntu-latest
+   steps:      
+      # Checkout the source code  
+       - name: 'outpus of DEPLOYMENTTYPE variable'
+         run: echo ${{ github.event.inputs.DEPLOYMENTTYPE}} 
+       - name: 'assigning to variable'
+         env:
+           D_type: ${{ github.event.inputs.DEPLOYMENTTYPE}}
+         run: echo ${{ github.event.inputs.DEPLOYMENTTYPE}}
+       - name: 'Git Checkout'  
+         uses: actions/checkout@v2
+         with:
+          ref: uat
+          fetch-depth: 0     
+       - name: 'branch'
+         run: git branch
+       - name: 'job status'
+         run: echo hello world !!! exit 1
+       - name: Send mail
+         if: always()
+         uses: dawidd6/action-send-mail@v3
+         with:
+           # Required mail server address:
+           server_address: smtp.gmail.com
+           # Required mail server port:
+           server_port: 465
+           # Optional (recommended): mail server username:
+           username: ${{secrets.MAIL_USERNAME}}
+           # Optional (recommended) mail server password:
+           password: ${{secrets.MAIL_PASSWORD}}
+           # Required mail subject:
+           subject: Github Actions job result
+           # Required recipients' addresses:
+           to: kirtansahu.87@gmail.com
+           # Required sender full name (address can be skipped):
+           from: kirtansahu.87@gmail.com # <user@example.com>
+           # Optional whether this connection use TLS (default is true if server_port is 465)
+           secure: true
+           # Optional plain body:
+           body: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+           # Optional carbon copy recipients:
+           cc: kirtan_sahu@persistent.com
+           # Optional unsigned/invalid certificates allowance:
+           ignore_cert: true
+           # Optional converting Markdown to HTML (set content_type to text/html too):
+           convert_markdown: true
+           # Optional priority: 'high', 'normal' (default) or 'low'
+           priority: low
